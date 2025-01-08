@@ -3,7 +3,8 @@ import UIKit
 class TaskTableViewCell: UITableViewCell {
     static let identifier = "TaskTableViewCell"
     @IBOutlet var label: UILabel!
-    @IBOutlet var checkbox: UISwitch!
+    @IBOutlet var date: UILabel!
+    @IBOutlet var radioButton: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,7 +18,9 @@ class TaskTableViewCell: UITableViewCell {
 
     func setData(_ task: TodoItem) {
         label.text = task.title
-        checkbox.isOn = task.isComplete
+        radioButton.image = UIImage(systemName: task.isCompleted ? "record.circle" : "circle")
+        radioButton.tintColor = task.isCompleted ? .tintColor : .systemGray
+        date.text = task.time?.formatted(date: .long, time: .complete)
     }
 
     override func layoutSubviews() {

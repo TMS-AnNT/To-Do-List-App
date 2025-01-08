@@ -1,41 +1,38 @@
-//
-//  EntryViewController.swift
-//  TodoList
-//
-//  Created by Lê Anh Chiêu on 6/1/25.
-//
-
 import CoreData
 import UIKit
 
-class EntryViewController: UIViewController {
+class EntryViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var textfield: UITextField!
+    @IBOutlet var datePicker: UIDatePicker!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         textfield.delegate = self
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveTask))
+        sheetPresentationController?.prefersGrabberVisible = true
+        sheetPresentationController?.detents = [.medium(), .large()]
+        textfield.becomeFirstResponder()
     }
-}
 
-extension EntryViewController: UITextFieldDelegate {
+    @IBAction func saveTask() {
+        guard let text = textfield.text, !text.isEmpty else { return }
+        let todoItem = TodoItem(context: coreDataContext)
+        todoItem.title = text
+        todoItem.isCompleted = false
+        todoItem.time = datePicker.date
+        do {
+            try coreDataContext.save()
+            dismiss(animated: true)
+        } catch {
+            print("Error creating todo: \(error)")
+        }
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         saveTask()
         return true
     }
 
-    @objc func saveTask() {
-        guard let text = textfield.text, !text.isEmpty else { return }
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let context = appDelegate.persistentContainer.viewContext
-        let todoItem = TodoItem(context: context)
-        todoItem.title = text
-        todoItem.isComplete = false
-        do {
-            try context.save()
-        } catch {
-            print("Error creating todo: \(error)")
-        }
-        navigationController?.popViewController(animated: true)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }

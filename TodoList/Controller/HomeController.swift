@@ -1,8 +1,9 @@
 import CoreData
 import UIKit
 
-class ViewController: UIViewController {
+class HomeController: UIViewController {
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var segmented: UISegmentedControl!
     private var fetchedResultsController: NSFetchedResultsController<TodoItem>!
 
     override func viewDidLoad() {
@@ -10,62 +11,83 @@ class ViewController: UIViewController {
         title = "Todo list"
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
-        tableView.dataSource = self
-        tableView.delegate = self
-        let nib = UINib(nibName: TaskTableViewCell.identifier, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: TaskTableViewCell.identifier)
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
+        setupTableView()
         setupFetchedResultsController()
         try? fetchedResultsController.performFetch()
     }
 
+    @IBAction func onTypeChange(_ sender: UISegmentedControl) {
+        let fetchRequest = TodoItem.fetchRequest()
+
+        switch sender.selectedSegmentIndex {
+        case 0:
+            fetchRequest.predicate = nil
+        case 1:
+            fetchRequest.predicate = NSPredicate(format: "isCompleted == %@", NSNumber(value: true))
+        case 2:
+            fetchRequest.predicate = NSPredicate(format: "isCompleted == %@", NSNumber(value: false))
+        default:
+            break
+        }
+
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
+
+        fetchedResultsController.fetchRequest.predicate = fetchRequest.predicate
+        try? fetchedResultsController.performFetch()
+
+        UIView.animate(withDuration: 0.25) {
+            self.tableView.reloadData()
+        }
+    }
+
+    @IBAction func didAddTap() {
+        let vc = storyboard?.instantiateViewController(identifier: "entry") as! EntryViewController
+        present(vc, animated: true)
+    }
+
+    func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(
+            UINib(nibName: TaskTableViewCell.identifier, bundle: nil),
+            forCellReuseIdentifier: TaskTableViewCell.identifier
+        )
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
+    }
+
     func setupFetchedResultsController() {
-        let fetchRequest: NSFetchRequest<TodoItem> = TodoItem.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        let fetchRequest = TodoItem.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
 
         fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
-            managedObjectContext: app.persistentContainer.viewContext,
+            managedObjectContext: coreDataContext,
             sectionNameKeyPath: nil,
             cacheName: nil
         )
         fetchedResultsController.delegate = self
     }
-
-    @IBAction func didAddTap() {
-        let vc = storyboard?.instantiateViewController(identifier: "entry") as! EntryViewController
-        vc.title = "New task"
-        navigationController?.pushViewController(vc, animated: true)
-    }
 }
 
-extension ViewController {
-    var app: AppDelegate {
-        UIApplication.shared.delegate as! AppDelegate
-    }
-}
-
-extension ViewController: UITableViewDelegate {
+extension HomeController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = fetchedResultsController.object(at: indexPath)
-        item.toggleCheck(app: app)
+        item.isCompleted.toggle()
+        app.saveContext()
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let item = fetchedResultsController.object(at: indexPath)
-            item.delete(app: app)
+            coreDataContext.delete(item)
+            app.saveContext()
         }
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension HomeController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultsController.sections?[section]
         return sectionInfo?.numberOfObjects ?? 0
@@ -85,7 +107,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: NSFetchedResultsControllerDelegate {
+extension HomeController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
@@ -103,19 +125,19 @@ extension ViewController: NSFetchedResultsControllerDelegate {
             }
 
         case .delete:
-            if let indexPath = indexPath {
+            if let indexPath {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
 
         case .update:
-            if let indexPath = indexPath {
+            if let indexPath {
                 let cell = tableView.cellForRow(at: indexPath) as? TaskTableViewCell
                 let item = controller.object(at: indexPath) as! TodoItem
                 cell?.setData(item)
             }
 
         case .move:
-            if let indexPath = indexPath, let newIndexPath = newIndexPath {
+            if let indexPath, let newIndexPath {
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.insertRows(at: [newIndexPath], with: .fade)
             }
