@@ -11,13 +11,17 @@
         <!--Navigation Controller-->
         <scene sceneID="XOm-Ba-Ok9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ioU-MT-dVV" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="ioU-MT-dVV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="geC-7N-YNg">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B2B-b2-MTA">
+                        <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jtt-x5-KiP"/>
                     </connections>
@@ -29,18 +33,31 @@
         <!--Home Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Home Controller" customClass="HomeController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Home Controller" customClass="HomeViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mnr-wN-Xjy">
-                                <rect key="frame" x="0.0" y="154" width="393" height="664"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mnr-wN-Xjy">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wuP-qa-yRa" userLabel="Segment">
-                                <rect key="frame" x="16" y="119" width="260" height="32"/>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mnr-wN-Xjy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="CTL-be-AlB"/>
+                            <constraint firstItem="mnr-wN-Xjy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KMy-rO-k8n"/>
+                            <constraint firstItem="mnr-wN-Xjy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KgN-Nf-g6d"/>
+                            <constraint firstItem="mnr-wN-Xjy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tKn-ef-w6J"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" id="pqH-Te-iUe">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="wuP-qa-yRa" userLabel="Segment">
+                                <rect key="frame" x="16" y="11" width="361" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="All"/>
                                     <segment title="Completed"/>
@@ -50,18 +67,8 @@
                                     <action selector="onTypeChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="KYV-bx-Ph5"/>
                                 </connections>
                             </segmentedControl>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="mnr-wN-Xjy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="CTL-be-AlB"/>
-                            <constraint firstItem="wuP-qa-yRa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HXF-fq-C05"/>
-                            <constraint firstItem="mnr-wN-Xjy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KMy-rO-k8n"/>
-                            <constraint firstItem="mnr-wN-Xjy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KgN-Nf-g6d"/>
-                            <constraint firstItem="wuP-qa-yRa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="jTF-LQ-kyv"/>
-                            <constraint firstItem="mnr-wN-Xjy" firstAttribute="top" secondItem="wuP-qa-yRa" secondAttribute="bottom" constant="4" id="r8E-qC-z1X"/>
-                        </constraints>
-                    </view>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Home" leftItemsSupplementBackButton="YES" id="YC4-xI-FAx">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="9Wq-cy-RT4">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="lau-Tw-oBG">
@@ -75,6 +82,7 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="segmented" destination="wuP-qa-yRa" id="aYD-r8-v30"/>
                         <outlet property="tableView" destination="mnr-wN-Xjy" id="n8B-jb-TbV"/>
@@ -84,66 +92,62 @@
             </objects>
             <point key="canvasLocation" x="1066.4122137404579" y="3.5211267605633805"/>
         </scene>
-        <!--Entry View Controller-->
+        <!--New Todo View Controller-->
         <scene sceneID="MRU-Bd-jrH">
             <objects>
-                <viewController storyboardIdentifier="entry" id="9wm-62-nEi" customClass="EntryViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="entry" id="9wm-62-nEi" customClass="NewTodoViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lz2-Z3-H6k">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="REv-rl-Bgh">
-                                <rect key="frame" x="20" y="83" width="353" height="506"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="F6e-Ap-5CF">
+                                <rect key="frame" x="16" y="75" width="361" height="727"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create new todo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elp-rl-nWr">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="28.666666666666668"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="500" horizontalCompressionResistancePriority="100" verticalCompressionResistancePriority="100" text="Create new todo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elp-rl-nWr">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="28.666666666666668"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter something" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="njZ-lS-cP7">
-                                        <rect key="frame" x="0.0" y="44.666666666666671" width="353" height="52"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="52" id="Q8h-S1-MK6"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="52" id="ahk-L4-q69"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="pT8-cj-943">
-                                        <rect key="frame" x="0.0" y="112.66666666666666" width="353" height="393.33333333333337"/>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="pT8-cj-943">
+                                        <rect key="frame" x="0.0" y="44.666666666666671" width="361" height="50"/>
                                     </datePicker>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="100" text="Enter new task" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IqL-IZ-PyA">
+                                        <rect key="frame" x="0.0" y="110.66666666666669" width="361" height="548.33333333333326"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShS-vA-QMI">
+                                        <rect key="frame" x="0.0" y="675" width="361" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="4xz-Or-CHX"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Save">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="21"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="saveTask" destination="9wm-62-nEi" eventType="touchUpInside" id="Tso-nJ-MrH"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShS-vA-QMI">
-                                <rect key="frame" x="20" y="750" width="353" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="iFB-Gc-bda"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Save">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="21"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="saveTask" destination="9wm-62-nEi" eventType="touchUpInside" id="Tso-nJ-MrH"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6CM-qU-4wn"/>
                         <keyboardLayoutGuide key="keyboard" id="Nom-Lo-fbw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="REv-rl-Bgh" firstAttribute="top" secondItem="6CM-qU-4wn" secondAttribute="top" constant="24" id="8yB-lb-d0E"/>
-                            <constraint firstItem="6CM-qU-4wn" firstAttribute="trailing" secondItem="REv-rl-Bgh" secondAttribute="trailing" constant="20" id="DGO-Ob-tCu"/>
-                            <constraint firstItem="REv-rl-Bgh" firstAttribute="leading" secondItem="6CM-qU-4wn" secondAttribute="leading" constant="20" id="TBs-Ee-7Pr"/>
-                            <constraint firstItem="Nom-Lo-fbw" firstAttribute="top" secondItem="ShS-vA-QMI" secondAttribute="bottom" constant="16" id="gZv-9B-0yM"/>
-                            <constraint firstItem="6CM-qU-4wn" firstAttribute="trailing" secondItem="ShS-vA-QMI" secondAttribute="trailing" constant="20" id="og0-fg-KsJ"/>
-                            <constraint firstItem="ShS-vA-QMI" firstAttribute="leading" secondItem="6CM-qU-4wn" secondAttribute="leading" constant="20" id="xLl-G6-PaJ"/>
+                            <constraint firstItem="Nom-Lo-fbw" firstAttribute="top" secondItem="F6e-Ap-5CF" secondAttribute="bottom" constant="16" id="kxg-lT-Sds"/>
+                            <constraint firstItem="F6e-Ap-5CF" firstAttribute="top" secondItem="6CM-qU-4wn" secondAttribute="top" constant="16" id="sfI-YQ-ymg"/>
+                            <constraint firstItem="F6e-Ap-5CF" firstAttribute="leading" secondItem="6CM-qU-4wn" secondAttribute="leading" constant="16" id="udu-y5-BiI"/>
+                            <constraint firstItem="6CM-qU-4wn" firstAttribute="trailing" secondItem="F6e-Ap-5CF" secondAttribute="trailing" constant="16" id="w3V-XF-TGa"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="pT8-cj-943" id="BcM-OT-ZeB"/>
-                        <outlet property="textfield" destination="njZ-lS-cP7" id="nkx-z6-MGX"/>
+                        <outlet property="textfield" destination="IqL-IZ-PyA" id="iLb-DI-gcP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1uO-xi-5Ox" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

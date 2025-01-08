@@ -1,7 +1,7 @@
 import CoreData
 import UIKit
 
-class HomeController: UIViewController {
+class HomeViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segmented: UISegmentedControl!
     private var fetchedResultsController: NSFetchedResultsController<TodoItem>!
@@ -41,7 +41,8 @@ class HomeController: UIViewController {
     }
 
     @IBAction func didAddTap() {
-        let vc = storyboard?.instantiateViewController(identifier: "entry") as! EntryViewController
+        let vc = storyboard?.instantiateViewController(identifier: "entry") as! NewTodoViewController
+//        navigationController?.pushViewController(vc, animated: true)
         present(vc, animated: true)
     }
 
@@ -70,7 +71,7 @@ class HomeController: UIViewController {
     }
 }
 
-extension HomeController: UITableViewDelegate {
+extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = fetchedResultsController.object(at: indexPath)
         item.isCompleted.toggle()
@@ -87,7 +88,7 @@ extension HomeController: UITableViewDelegate {
     }
 }
 
-extension HomeController: UITableViewDataSource {
+extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultsController.sections?[section]
         return sectionInfo?.numberOfObjects ?? 0
@@ -100,14 +101,26 @@ extension HomeController: UITableViewDataSource {
         ) as! TaskTableViewCell
 
         let item = fetchedResultsController.object(at: indexPath)
-
         cell.setData(item)
+        cell.editButton.tag = indexPath.row
+        cell.editButton.addTarget(self, action: #selector(openEditing(_:)), for: .touchUpInside)
 
         return cell
     }
+
+    @objc func openEditing(_ sender: UIButton) {
+        // Lấy item từ fetchedResultsController
+        let row = sender.tag
+        let item = fetchedResultsController.object(at: IndexPath(row: row, section: 0))
+
+        // Mở màn hình chỉnh sửa
+        let vc = storyboard?.instantiateViewController(identifier: "entry") as! NewTodoViewController
+        vc.item = item
+        present(vc, animated: true)
+    }
 }
 
-extension HomeController: NSFetchedResultsControllerDelegate {
+extension HomeViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
