@@ -42,7 +42,6 @@ class HomeViewController: UIViewController {
 
     @IBAction func didAddTap() {
         let vc = storyboard?.instantiateViewController(identifier: "entry") as! NewTodoViewController
-//        navigationController?.pushViewController(vc, animated: true)
         present(vc, animated: true)
     }
 

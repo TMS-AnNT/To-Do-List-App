@@ -100,20 +100,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="F6e-Ap-5CF">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F6e-Ap-5CF">
                                 <rect key="frame" x="16" y="78" width="408" height="828"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Create new todo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elp-rl-nWr">
-                                        <rect key="frame" x="0.0" y="0.0" width="408" height="127.33333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="408" height="194"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="pT8-cj-943">
-                                        <rect key="frame" x="0.0" y="139.33333333333334" width="408" height="420.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="200.33333333333329" width="408" height="420.66666666666674"/>
                                     </datePicker>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new todo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SoA-tm-MYK" userLabel="TextField">
-                                        <rect key="frame" x="0.0" y="572" width="408" height="52"/>
+                                        <rect key="frame" x="0.0" y="611" width="408" height="52"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="vXm-tg-ImN"/>
                                         </constraints>
@@ -121,7 +121,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="HGA-lh-AdV" userLabel="spacer">
-                                        <rect key="frame" x="0.0" y="636" width="408" height="128"/>
+                                        <rect key="frame" x="0.0" y="663" width="408" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShS-vA-QMI">
