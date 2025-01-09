@@ -59,7 +59,7 @@ class HomeViewController: UIViewController {
 
     func setupFetchedResultsController() {
         let fetchRequest = TodoItem.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "time", ascending: false)]
 
         fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
@@ -116,6 +116,7 @@ extension HomeViewController: UITableViewDataSource {
         // Mở màn hình chỉnh sửa
         let vc = storyboard?.instantiateViewController(identifier: "entry") as! NewTodoViewController
         vc.item = item
+//        navigationController?.pushViewController(vc, animated: true)
         present(vc, animated: true)
     }
 }

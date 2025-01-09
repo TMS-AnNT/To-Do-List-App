@@ -1,8 +1,8 @@
 import CoreData
 import UIKit
 
-class NewTodoViewController: UIViewController, UITextViewDelegate {
-    @IBOutlet var textfield: UITextView!
+class NewTodoViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet var textfield: UITextField!
     @IBOutlet var datePicker: UIDatePicker!
 
     var item: TodoItem?
@@ -10,14 +10,15 @@ class NewTodoViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         textfield.delegate = self
+        datePicker.contentHorizontalAlignment = .leading
         sheetPresentationController?.prefersGrabberVisible = true
-        sheetPresentationController?.detents = [.medium()]
-        DispatchQueue.main.async {
-            self.textfield.becomeFirstResponder()
-        }
+        sheetPresentationController?.detents = [.medium(), .large()]
         if let item {
             textfield.text = item.title
             datePicker.date = item.time ?? Date()
+        }
+        DispatchQueue.main.async {
+            self.textfield.becomeFirstResponder()
         }
     }
 

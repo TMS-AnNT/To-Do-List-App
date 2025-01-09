@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ioU-MT-dVV">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,12 +14,12 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="ioU-MT-dVV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="geC-7N-YNg">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="62" width="440" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B2B-b2-MTA">
-                        <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                        <rect key="frame" x="0.0" y="873" width="440" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -35,11 +35,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" userLabel="Home Controller" customClass="HomeViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mnr-wN-Xjy">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="106" width="440" height="767"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
@@ -55,8 +55,8 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" id="pqH-Te-iUe">
-                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="wuP-qa-yRa" userLabel="Segment">
-                                <rect key="frame" x="16" y="11" width="361" height="32"/>
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="wuP-qa-yRa" userLabel="Segment">
+                                <rect key="frame" x="20" y="11" width="400" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="All"/>
@@ -72,7 +72,7 @@
                     <navigationItem key="navigationItem" title="Home" leftItemsSupplementBackButton="YES" id="YC4-xI-FAx">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="9Wq-cy-RT4">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="lau-Tw-oBG">
-                                <rect key="frame" x="330" y="4.6666666666666679" width="47" height="35"/>
+                                <rect key="frame" x="373" y="4.6666666666666679" width="47" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="plus" catalog="system"/>
@@ -97,32 +97,37 @@
             <objects>
                 <viewController storyboardIdentifier="entry" id="9wm-62-nEi" customClass="NewTodoViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lz2-Z3-H6k">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="F6e-Ap-5CF">
-                                <rect key="frame" x="16" y="75" width="361" height="727"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="F6e-Ap-5CF">
+                                <rect key="frame" x="16" y="78" width="408" height="828"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="500" horizontalCompressionResistancePriority="100" verticalCompressionResistancePriority="100" text="Create new todo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elp-rl-nWr">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="28.666666666666668"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Create new todo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elp-rl-nWr">
+                                        <rect key="frame" x="0.0" y="0.0" width="408" height="127.33333333333333"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="pT8-cj-943">
-                                        <rect key="frame" x="0.0" y="44.666666666666671" width="361" height="50"/>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="pT8-cj-943">
+                                        <rect key="frame" x="0.0" y="139.33333333333334" width="408" height="420.66666666666663"/>
                                     </datePicker>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="100" text="Enter new task" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IqL-IZ-PyA">
-                                        <rect key="frame" x="0.0" y="110.66666666666669" width="361" height="548.33333333333326"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShS-vA-QMI">
-                                        <rect key="frame" x="0.0" y="675" width="361" height="52"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new todo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SoA-tm-MYK" userLabel="TextField">
+                                        <rect key="frame" x="0.0" y="572" width="408" height="52"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="52" id="4xz-Or-CHX"/>
+                                            <constraint firstAttribute="height" constant="52" id="vXm-tg-ImN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="HGA-lh-AdV" userLabel="spacer">
+                                        <rect key="frame" x="0.0" y="636" width="408" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShS-vA-QMI">
+                                        <rect key="frame" x="0.0" y="776" width="408" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="9Pq-rN-tCn"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Save">
@@ -139,15 +144,15 @@
                         <keyboardLayoutGuide key="keyboard" id="Nom-Lo-fbw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Nom-Lo-fbw" firstAttribute="top" secondItem="F6e-Ap-5CF" secondAttribute="bottom" constant="16" id="kxg-lT-Sds"/>
-                            <constraint firstItem="F6e-Ap-5CF" firstAttribute="top" secondItem="6CM-qU-4wn" secondAttribute="top" constant="16" id="sfI-YQ-ymg"/>
-                            <constraint firstItem="F6e-Ap-5CF" firstAttribute="leading" secondItem="6CM-qU-4wn" secondAttribute="leading" constant="16" id="udu-y5-BiI"/>
-                            <constraint firstItem="6CM-qU-4wn" firstAttribute="trailing" secondItem="F6e-Ap-5CF" secondAttribute="trailing" constant="16" id="w3V-XF-TGa"/>
+                            <constraint firstItem="F6e-Ap-5CF" firstAttribute="leading" secondItem="6CM-qU-4wn" secondAttribute="leading" constant="16" id="45c-UF-2TF"/>
+                            <constraint firstItem="F6e-Ap-5CF" firstAttribute="top" secondItem="6CM-qU-4wn" secondAttribute="top" constant="16" id="C3X-C3-cGK"/>
+                            <constraint firstItem="6CM-qU-4wn" firstAttribute="trailing" secondItem="F6e-Ap-5CF" secondAttribute="trailing" constant="16" id="Hw8-we-BAp"/>
+                            <constraint firstItem="Nom-Lo-fbw" firstAttribute="top" secondItem="F6e-Ap-5CF" secondAttribute="bottom" priority="999" constant="16" id="oze-4G-1GK"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="pT8-cj-943" id="BcM-OT-ZeB"/>
-                        <outlet property="textfield" destination="IqL-IZ-PyA" id="iLb-DI-gcP"/>
+                        <outlet property="textfield" destination="SoA-tm-MYK" id="MdQ-aB-6CR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1uO-xi-5Ox" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
