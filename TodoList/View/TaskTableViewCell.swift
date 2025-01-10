@@ -1,6 +1,6 @@
 import UIKit
 
-class TaskTableViewCell: UITableViewCell {
+class TaskTableViewCell: UICollectionViewCell {
     static let identifier = "TaskTableViewCell"
     @IBOutlet var label: UILabel!
     @IBOutlet var date: UILabel!
@@ -9,10 +9,6 @@ class TaskTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
 
     func setData(_ task: TodoItem) {

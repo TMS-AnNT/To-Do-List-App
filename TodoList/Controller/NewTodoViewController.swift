@@ -1,29 +1,30 @@
 import CoreData
 import UIKit
 
-class NewTodoViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet var textfield: UITextField!
+class NewTodoViewController: UIViewController, UITextViewDelegate {
+    @IBOutlet var textView: UITextView!
     @IBOutlet var datePicker: UIDatePicker!
 
     var item: TodoItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        textfield.delegate = self
+        textView.delegate = self
         datePicker.contentHorizontalAlignment = .leading
         sheetPresentationController?.prefersGrabberVisible = true
         sheetPresentationController?.detents = [.medium(), .large()]
         if let item {
-            textfield.text = item.title
+            textView.text = item.title
             datePicker.date = item.time ?? Date()
-        }
-        DispatchQueue.main.async {
-            self.textfield.becomeFirstResponder()
+        } else {
+            DispatchQueue.main.async {
+                self.textView.becomeFirstResponder()
+            }
         }
     }
 
     @IBAction func saveTask() {
-        guard let text = textfield.text, !text.isEmpty else { return }
+        guard let text = textView.text, !text.isEmpty else { return }
         if let item {
             item.title = text
             item.isCompleted = false
@@ -35,7 +36,7 @@ class NewTodoViewController: UIViewController, UITextFieldDelegate {
             todoItem.time = datePicker.date
         }
         app.saveContext()
-        textfield.endEditing(true)
+        textView.endEditing(true)
         dismiss(animated: true)
     }
 }

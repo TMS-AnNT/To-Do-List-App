@@ -38,25 +38,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mnr-wN-Xjy">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tx1-eE-rpM">
                                 <rect key="frame" x="0.0" y="106" width="440" height="767"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cgk-KJ-yhb">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="mnr-wN-Xjy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="CTL-be-AlB"/>
-                            <constraint firstItem="mnr-wN-Xjy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KMy-rO-k8n"/>
-                            <constraint firstItem="mnr-wN-Xjy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KgN-Nf-g6d"/>
-                            <constraint firstItem="mnr-wN-Xjy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tKn-ef-w6J"/>
+                            <constraint firstItem="Tx1-eE-rpM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DuP-ym-cTK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tx1-eE-rpM" secondAttribute="trailing" id="LAA-Ad-5Aa"/>
+                            <constraint firstItem="Tx1-eE-rpM" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cqY-ZL-QAc"/>
+                            <constraint firstItem="Tx1-eE-rpM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="q1E-jd-RtV"/>
                         </constraints>
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" id="pqH-Te-iUe">
-                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="wuP-qa-yRa" userLabel="Segment">
-                                <rect key="frame" x="20" y="11" width="400" height="32"/>
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="wuP-qa-yRa" userLabel="Segment">
+                                <rect key="frame" x="20" y="10.666666666666664" width="400" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="All"/>
@@ -84,8 +90,8 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="collectionView" destination="Tx1-eE-rpM" id="POR-Nr-VVe"/>
                         <outlet property="segmented" destination="wuP-qa-yRa" id="aYD-r8-v30"/>
-                        <outlet property="tableView" destination="mnr-wN-Xjy" id="n8B-jb-TbV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -100,30 +106,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F6e-Ap-5CF">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="F6e-Ap-5CF">
                                 <rect key="frame" x="16" y="78" width="408" height="828"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Create new todo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elp-rl-nWr">
-                                        <rect key="frame" x="0.0" y="0.0" width="408" height="194"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="408" height="232.66666666666666"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="pT8-cj-943">
-                                        <rect key="frame" x="0.0" y="200.33333333333329" width="408" height="420.66666666666674"/>
+                                        <rect key="frame" x="0.0" y="244.66666666666671" width="408" height="379.33333333333326"/>
                                     </datePicker>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new todo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SoA-tm-MYK" userLabel="TextField">
-                                        <rect key="frame" x="0.0" y="611" width="408" height="52"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="52" id="vXm-tg-ImN"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="HGA-lh-AdV" userLabel="spacer">
-                                        <rect key="frame" x="0.0" y="663" width="408" height="128"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="500" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wYg-4I-fjd">
+                                        <rect key="frame" x="0.0" y="636" width="408" height="128"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShS-vA-QMI">
                                         <rect key="frame" x="0.0" y="776" width="408" height="52"/>
                                         <constraints>
@@ -152,7 +153,7 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="pT8-cj-943" id="BcM-OT-ZeB"/>
-                        <outlet property="textfield" destination="SoA-tm-MYK" id="MdQ-aB-6CR"/>
+                        <outlet property="textView" destination="wYg-4I-fjd" id="G1f-ld-Fs7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1uO-xi-5Ox" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -162,6 +163,9 @@
     </scenes>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

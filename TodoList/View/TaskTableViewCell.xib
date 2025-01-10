@@ -63,10 +63,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="date" destination="XtH-VO-lho" id="znx-hp-twe"/>
-                <outlet property="editButton" destination="RLu-st-NDE" id="eYb-B1-QZK"/>
-                <outlet property="label" destination="8Kr-Ad-nZ2" id="4Wb-Lr-Bbi"/>
-                <outlet property="radioButton" destination="xBM-Jj-pWt" id="R8l-Wy-KLq"/>
+                <outlet property="date" destination="XtH-VO-lho" id="ln1-we-RcH"/>
+                <outlet property="editButton" destination="RLu-st-NDE" id="psf-er-lze"/>
+                <outlet property="label" destination="8Kr-Ad-nZ2" id="v8V-vO-Yej"/>
+                <outlet property="radioButton" destination="xBM-Jj-pWt" id="cFE-u5-WFJ"/>
             </connections>
             <point key="canvasLocation" x="-2412.9770992366412" y="-352.11267605633805"/>
         </tableViewCell>
